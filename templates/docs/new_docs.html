@@ -1,0 +1,48 @@
+{% include 'base.html' %}
+{% load static %}
+
+{% block extra_style %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<link rel="stylesheet" href="{% static 'css/new_docs.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="side-bar">
+    <div class="menu">
+        <div class="item"><a href="#"><i class="fas fa-desktop"></i>Dashboard</a></div>
+        <div class="item">
+            <a class="sub-btn"><i class="fas fa-table"></i>Tables<i class="fas fa-angle-right dropdown"></i></a>
+            <div class="sub-menu">
+                <a href="#" class="sub-item">Sub Item 01</a>
+                <a href="#" class="sub-item">Sub Item 02</a>
+                <a href="#" class="sub-item">Sub Item 03</a>
+            </div>
+        </div>
+        <div class="item"><a href="#"><i class="fas fa-th"></i>Forms</a></div>
+        <div class="item">
+            <a class="sub-btn"><i class="fas fa-cogs"></i>Settings<i class="fas fa-angle-right dropdown"></i></a>
+            <div class="sub-menu">
+                <a href="#" class="sub-item">Sub Item 01</a>
+                <a href="#" class="sub-item">Sub Item 02</a>
+            </div>
+        </div>
+        <div class="item"><a href="#"><i class="fas fa-info-circle"></i>About</a></div>
+    </div>
+</div>
+<section class="main">
+    <h1>Sidebar Menu With<br>Sub-Menus</h1>
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //jquery for toggle sub menus
+        $('.sub-btn').click(function () {
+            $(this).next('.sub-menu').slideToggle();
+            $(this).find('.dropdown').toggleClass('rotate');
+        });
+        //jquery for expand and collapse the sidebar
+        $('.side-bar').addClass('active');
+    });
+</script>
+{% endblock %}
